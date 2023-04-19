@@ -19,4 +19,8 @@ public class PersonalList<T> extends StaticStructure<T> {
     public void push(T item , int index){
         super.add(item, index);
     }
+
+    public T pop(){
+        return super.pop();
+    }
 }

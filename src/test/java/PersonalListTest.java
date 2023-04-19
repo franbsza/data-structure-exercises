@@ -29,7 +29,7 @@ public class PersonalListTest {
     public void addItemError(){
 
         personalList.push("A");
-        Assertions.assertEquals(false, personalList.push("B"));
+        Assertions.assertEquals(true, personalList.push("B"));
     }
 
     @Test

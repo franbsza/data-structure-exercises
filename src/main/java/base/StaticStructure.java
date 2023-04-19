@@ -10,10 +10,14 @@ public class StaticStructure<T> {
         this.size = 0;
     }
 
-    public StaticStructure() {}
+    public StaticStructure() {
+        this(10);
+    }
 
     // add method more efficient
     protected boolean add(T item){
+
+        this.increaseCapacity();
 
         if (size < items.length){
             items[size] = item;
@@ -21,7 +25,6 @@ public class StaticStructure<T> {
             return true;
         }
         else{
-            System.out.println("space completely fulled");
             return false;
         }
     }
@@ -50,15 +53,11 @@ public class StaticStructure<T> {
                     this.items[size-j] = null;
                 }
             }
+            if(items[index] == null){
+                this.items[index] = item;
+            }
         }
         size ++;
-    }
-
-    protected T peek() {
-        if(this.isEmpty()){
-            return null;
-        }
-        return items[size - 1];
     }
 
     protected T pop() {
@@ -69,6 +68,22 @@ public class StaticStructure<T> {
         items[size - 1] = null;
         size--;
         return item;
+    }
+
+    protected void remove(int index){
+        if(!this.isEmpty()){
+            if(!(index >= 0 && index < this.getSize())){
+                throw new IllegalArgumentException("Invalid position!");
+            }
+            for(int i = 0; i < this.getSize(); i++){
+                this.items[i] = this.items[i+1];
+
+                if(i == this.getSize()-1){
+                    this.items[i] = null;
+                }
+            }
+            size--;
+        }
     }
 
     protected void increaseCapacity(){

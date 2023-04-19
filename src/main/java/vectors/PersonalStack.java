@@ -16,12 +16,11 @@ public class PersonalStack<T> extends StaticStructure<T> {
         super.add(item);
     }
 
-    public boolean isEmpty(){
-       return super.isEmpty();
-    }
-
-    public T peek(){
-       return super.peek();
+    public T peek() {
+        if(this.isEmpty()){
+            return null;
+        }
+        return items[size - 1];
     }
 
     public T pop(){
