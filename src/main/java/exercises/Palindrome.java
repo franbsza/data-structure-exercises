@@ -13,25 +13,19 @@ public class Palindrome {
         int n = text.length() / 2;
 
         String init = text.substring(0,n);
-        String end = "";
+        String end;
 
         if(text.length() % 2 == 0)  {
-            end = text.substring(n,text.length());
+            end = text.substring(n);
         }
         else{
-            end = text.substring(n+1,text.length());
+            end = text.substring(n+1);
         }
 
-
-        StringBuffer sbr = new StringBuffer(end);
+        StringBuilder sbr = new StringBuilder(end);
         String endReversed = String.valueOf(sbr.reverse());
 
-        if(init.equals(endReversed)){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return init.equals(endReversed) ? true : false;
     }
 
     public boolean isPalindromeUsingStack(String text){
@@ -44,17 +38,12 @@ public class Palindrome {
             stackText.push(text.charAt(i));
         }
 
-        String inversedText = "";
+        StringBuilder inversedText = new StringBuilder();
         while (!stackText.isEmpty()){
-            inversedText += stackText.pop();
+            inversedText.append(stackText.pop());
         }
 
-        if (text.equals(inversedText)) {
-            return true;
-        }
-        else{
-            return false;
-        }
+        return text.equals(inversedText.toString()) ? true : false;
     }
 
     public boolean isPalindromeUsingQueueStack(String text){
