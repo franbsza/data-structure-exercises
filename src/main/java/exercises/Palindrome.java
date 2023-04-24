@@ -1,6 +1,8 @@
 package exercises;
 
+import java.util.LinkedList;
 import java.util.Locale;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Palindrome {
@@ -25,11 +27,9 @@ public class Palindrome {
         String endReversed = String.valueOf(sbr.reverse());
 
         if(init.equals(endReversed)){
-            System.out.println("It's Palindrome!");
             return true;
         }
         else{
-            System.out.println("It is not Palindrome!");
             return false;
         }
     }
@@ -50,12 +50,32 @@ public class Palindrome {
         }
 
         if (text.equals(inversedText)) {
-            System.out.println("It's Palindrome!");
             return true;
         }
         else{
-            System.out.println("It is not Palindrome!");
             return false;
         }
+    }
+
+    public boolean isPalindromeUsingQueueStack(String text){
+        char[] textChar = text.toLowerCase(Locale.ROOT).replace(" ", "").replace(".", "").toCharArray();
+
+        Stack<Character> stackText = new Stack<>();
+        Queue<Character> queueText = new LinkedList<>();
+
+        for(char character : textChar){
+            stackText.push(character);
+            queueText.add(character);
+        }
+
+        boolean isPalindrome = true;
+
+        for(int i = 0; i < textChar.length/2 ; i++){
+            if(stackText.pop() != queueText.remove()){
+                isPalindrome = false;
+                break;
+            }
+        }
+        return isPalindrome;
     }
 }

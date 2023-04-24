@@ -38,4 +38,16 @@ public class PalindromeTest {
     public void verifyFalsePalindromeUsingStack(String text){
         Assertions.assertFalse(palindrome.isPalindromeUsingStack(text));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Anilina", "aibofobia.", "A base do teto desaba.", "sopapos", "reger", "Ato idiota.", "Missa é assim.", "Renner","20022002", "Ana Rita a tirana"})
+    public void verifyPalindromeUsingStackQueue(String text){
+        Assertions.assertTrue(palindrome.isPalindromeUsingQueueStack(text));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"AAAnilina", "aPPOPibofobia.", "SSSPPP", "123455"})
+    public void verifyFalsePalindromeUsingStackQueue(String text){
+        Assertions.assertFalse(palindrome.isPalindromeUsingQueueStack(text));
+    }
 }
