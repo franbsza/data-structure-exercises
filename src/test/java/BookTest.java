@@ -32,13 +32,13 @@ public class BookTest {
 
     @Test
     public void isNotEmpty(){
-        Assertions.assertEquals(false, stackTest.isEmpty());
+        Assertions.assertFalse(stackTest.isEmpty());
     }
 
     @Test
     public void isEmpty(){
         stackTest = new Stack<>();
-        Assertions.assertEquals(true, stackTest.isEmpty());
+        Assertions.assertTrue(stackTest.isEmpty());
     }
 
     @Test

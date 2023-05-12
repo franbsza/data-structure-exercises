@@ -25,7 +25,7 @@ public class Palindrome {
         StringBuilder sbr = new StringBuilder(end);
         String endReversed = String.valueOf(sbr.reverse());
 
-        return init.equals(endReversed) ? true : false;
+        return init.equals(endReversed);
     }
 
     public boolean isPalindromeUsingStack(String text){
@@ -43,11 +43,11 @@ public class Palindrome {
             inversedText.append(stackText.pop());
         }
 
-        return text.equals(inversedText.toString()) ? true : false;
+        return text.contentEquals(inversedText);
     }
 
     public boolean isPalindromeUsingQueueStack(String text){
-        char[] textChar = text.toLowerCase(Locale.ROOT).replace(" ", "").replace(".", "").toCharArray();
+        char[] textChar = text.toLowerCase(Locale.ROOT).trim().replace(".", "").toCharArray();
 
         Stack<Character> stackText = new Stack<>();
         Queue<Character> queueText = new LinkedList<>();
