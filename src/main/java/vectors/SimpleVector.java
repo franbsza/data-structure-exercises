@@ -1,11 +1,11 @@
 package vectors;
 
-public class Vector {
+public class SimpleVector {
 
     private String[] items;
     private int size;
 
-    public Vector(int capacity){
+    public SimpleVector(int capacity){
         this.items = new String[capacity];
         this.size = 0;
     }
@@ -113,10 +113,7 @@ public class Vector {
         if(this.size == this.items.length){
             String[] newItems = new String[this.items.length * 2];
 
-            for (int i = 0; i < this.items.length ; i++){
-
-                newItems[i] = this.items[i];
-            }
+            System.arraycopy(this.items, 0, newItems, 0, this.items.length);
             this.items = newItems;
         }
     }

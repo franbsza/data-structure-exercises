@@ -3,13 +3,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import vectors.Contact;
+import vectors.model.Contact;
 import vectors.PersonalPriorityQueue;
 
 public class PersonalPriorityQueueTest {
 
     @InjectMocks
-    PersonalPriorityQueue personalPriorityQueue;
+    PersonalPriorityQueue<Contact> personalPriorityQueue;
 
     @Mock
     Contact contact;
@@ -17,7 +17,7 @@ public class PersonalPriorityQueueTest {
 
     @BeforeEach
     public void setup(){
-        personalPriorityQueue = new PersonalPriorityQueue();
+        personalPriorityQueue = new PersonalPriorityQueue<>();
     }
 
     @Test

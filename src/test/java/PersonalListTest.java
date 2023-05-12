@@ -10,7 +10,7 @@ import vectors.PersonalList;
 public class PersonalListTest {
 
     @InjectMocks
-    PersonalList personalList;
+    PersonalList<String> personalList;
 
     @BeforeEach
     public void setup(){
@@ -29,7 +29,7 @@ public class PersonalListTest {
     public void addItemError(){
 
         personalList.push("A");
-        Assertions.assertEquals(true, personalList.push("B"));
+        Assertions.assertTrue(personalList.push("B"));
     }
 
     @Test

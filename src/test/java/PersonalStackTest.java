@@ -7,11 +7,11 @@ import vectors.PersonalStack;
 public class PersonalStackTest {
 
     @InjectMocks
-    PersonalStack personalStack;
+    PersonalStack<String> personalStack;
 
     @BeforeEach
     public void setup(){
-        personalStack = new PersonalStack(10);
+        personalStack = new PersonalStack<>(10);
 
         personalStack.push("A");
         personalStack.push("B");
@@ -20,13 +20,13 @@ public class PersonalStackTest {
 
     @Test
     public void isEmptyFalse(){
-        Assertions.assertEquals(false, personalStack.isEmpty());
+        Assertions.assertFalse(personalStack.isEmpty());
     }
 
     @Test //remover todos para testar o isEmpty true
     public void isEmptyTrue(){
         personalStack = new PersonalStack<>();
-        Assertions.assertEquals(true, personalStack.isEmpty());
+        Assertions.assertTrue(personalStack.isEmpty());
     }
 
     @Test

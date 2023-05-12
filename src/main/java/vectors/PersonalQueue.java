@@ -1,6 +1,6 @@
 package vectors;
 
-import base.StaticStructure;
+import vectors.base.StaticStructure;
 
 public class PersonalQueue<T> extends StaticStructure<T> {
 

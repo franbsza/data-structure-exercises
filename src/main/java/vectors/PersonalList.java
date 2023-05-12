@@ -1,6 +1,6 @@
 package vectors;
 
-import base.StaticStructure;
+import vectors.base.StaticStructure;
 
 public class PersonalList<T> extends StaticStructure<T> {
 

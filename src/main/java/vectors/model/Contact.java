@@ -1,4 +1,4 @@
-package vectors;
+package vectors.model;
 
 public class Contact implements Comparable<Contact> {
 
@@ -14,38 +14,6 @@ public class Contact implements Comparable<Contact> {
         this.priority = priority;
     }
 
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-
     @Override
     public String toString() {
         return "Contact{" +
@@ -53,6 +21,10 @@ public class Contact implements Comparable<Contact> {
                 ", type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public int getPriority() {
+        return priority;
     }
 
     @Override
