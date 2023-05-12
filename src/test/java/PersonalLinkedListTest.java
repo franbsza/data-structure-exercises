@@ -7,25 +7,25 @@ import org.mockito.InjectMocks;
 public class PersonalLinkedListTest {
 
     @InjectMocks
-    PersonalLinkedList personalLinkedList;
+    PersonalLinkedList<String> personalLinkedList;
 
     @BeforeEach
     public void setup(){
-        personalLinkedList = new PersonalLinkedList();
+        personalLinkedList = new PersonalLinkedList<>();
     }
     
     @Test
     public void add(){
-        personalLinkedList.add(1);
+        personalLinkedList.add("1");
         personalLinkedList.add("aaa");
-        personalLinkedList.add(true);
+        personalLinkedList.add("true");
     }
 
     @Test
     public void printList(){
-        personalLinkedList.add(1);
+        personalLinkedList.add("1");
         personalLinkedList.add("Any string");
-        personalLinkedList.add(true);
+        personalLinkedList.add("true");
         Assertions.assertEquals("[1,Any string,true,]", personalLinkedList.print());
     }
 }
