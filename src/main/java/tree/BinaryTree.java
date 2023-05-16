@@ -1,7 +1,11 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
     static Node root;
+    int size;
 
     public BinaryTree(){
         this.root = null;
@@ -10,7 +14,6 @@ public class BinaryTree {
     public class Node {
         int key;
         Node left, right;
-
 
         public Node(int item)
         {
@@ -24,6 +27,7 @@ public class BinaryTree {
 
         if (root == null){
             root = newNode;
+            size++;
         } else {
             insertNode(root,newNode);
         }
@@ -33,12 +37,14 @@ public class BinaryTree {
         if (newNode.key < node.key){
             if (node.left == null){
                 node.left = newNode;
+                size++;
             } else {
                 insertNode(node.left, newNode);
             }
         } else {
             if (node.right == null){
                 node.right = newNode;
+                size++;
             } else {
                 insertNode(node.right, newNode);
             }
@@ -71,7 +77,6 @@ public class BinaryTree {
         traversePreorder(root);
     }
 
-
     void traversePostorder(Node node)
     {
         if (node == null)
@@ -79,6 +84,24 @@ public class BinaryTree {
         traversePostorder(node.left);
         traversePostorder(node.right);
         System.out.println(node.key + " ");
+    }
+
+    void leverlOrder(Node node){
+        if(node == this.root){
+            node = this.root;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+           node = queue.remove();
+           System.out.printf(node.key + " ");
+           if(node.left != null){
+               queue.add(node.left);
+           }
+            if(node.right != null){
+                queue.add(node.right);
+            }
+        }
     }
 
     void printPostorder() {
@@ -107,19 +130,22 @@ public class BinaryTree {
     public static void main(String[] args){
         BinaryTree binaryTree = new BinaryTree();
 
-        binaryTree.insert(1);
-        binaryTree.insert(2);
-        binaryTree.insert(3);
-        binaryTree.insert(4);
-        binaryTree.insert(5);
+        binaryTree.insert(61);
+        binaryTree.insert(89);
+        binaryTree.insert(66);
+        binaryTree.insert(43);
+        binaryTree.insert(51);
+        binaryTree.insert(16);
+        binaryTree.insert(55);
+        binaryTree.insert(11);
+        binaryTree.insert(79);
+        binaryTree.insert(77);
+        binaryTree.insert(82);
+        binaryTree.insert(32);
 
-        System.out.println("printInorder: ");
         binaryTree.printInorder();
-        System.out.println("printPreorder: ");
         binaryTree.printPreorder();
-        System.out.println("printPostorder");
         binaryTree.printPostorder();
-
-        binaryTree.printHeight();
+        binaryTree.leverlOrder(root);
     }
 }
