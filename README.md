@@ -3,7 +3,7 @@
 Welcome to data-structure-and-algorithms repo!
 
 
-I started this repository to training while I am studyng Data Structures and Algorithms.
+I started this repository to training while I am studying Data Structures and Algorithms.
 
 I am using some books by reference like
 
