@@ -1,6 +1,6 @@
 package exercises;
 
-public class Book {
+class Book {
     private String title;
     private String isbn;
     private int year;

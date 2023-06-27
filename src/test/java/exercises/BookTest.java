@@ -1,4 +1,5 @@
-import exercises.Book;
+package exercises;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -18,7 +19,11 @@ public class BookTest {
 
     @BeforeEach
     public void setup(){
-        book = new Book("Caibalion", "012245878", "Three Initiates", 1880);
+        book = new Book(
+                "Caibalion",
+                "012245878",
+                "Three Initiates",
+                1880);
         stackTest = new Stack<>();
         stackTest.push(book);
     }
